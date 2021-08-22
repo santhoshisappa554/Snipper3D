@@ -20,7 +20,9 @@ public class EnemyTargets : MonoBehaviour
     void Start()
     {
         randEnemy = Random.Range(0, enemyList.Length);
+        enemyList[randEnemy].tag = "Enemy";
         EnemyName = enemyList[randEnemy].name;
+        
         print(EnemyName);
 
         if (EnemyName == "Enemy1")

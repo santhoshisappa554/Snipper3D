@@ -10,7 +10,7 @@ public class PlayerController : MonoBehaviour
     public float backSpeed;
     public float turnSpeed;
     Animator anim;
-     EnemyHealth enemyHealth;
+    EnemyHealth enemyHealth;
     public int score=0;
     bool backMove = false;
     public Text ScoreText;

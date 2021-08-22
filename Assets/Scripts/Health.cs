@@ -28,6 +28,6 @@ public class Health : MonoBehaviour
     {
         gameObject.SetActive(false);
         print("EnemyDead");
-        SceneManager.LoadScene(6);
+        SceneManager.LoadScene(5);
     }
 }

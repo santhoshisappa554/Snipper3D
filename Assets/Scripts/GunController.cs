@@ -58,21 +58,27 @@ public class GunController : MonoBehaviour
                     health.TakeDamage(1);
                 }
 
-            if (hit.collider.name ==EnemyTargets.instance.EnemyName)
+            if (hit.collider.CompareTag("Enemy"))
             {
-                if (EnemyHealth.instance1.currentHealth <= 0)
+                if (EnemyHealth.instance1.currentHealth == 0)
                 {
                     SceneManager.LoadScene(6);
                 }
-                
-            }
-            else
-            {
                
+
+
+            }
+            else if(hit.collider.CompareTag("Enemy1"))
+            {
+
                 SceneManager.LoadScene(5);
             }
                 
            
         }
+    }
+    public void Target()
+    {
+        
     }
 }

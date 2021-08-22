@@ -7,7 +7,7 @@ using UnityEngine.UI;
 public class EnemyShooting : MonoBehaviour
 {
     EnemyAggroDetection aggroDetect;
-    private EnemyHealth healthTarget;
+    private Health healthTarget;
     [SerializeField]
     private float attackTimer;
     [SerializeField]
@@ -22,7 +22,7 @@ public class EnemyShooting : MonoBehaviour
 
     private void AggroDetect_OnAggro(Transform target)
     {
-        EnemyHealth health = target.GetComponent<EnemyHealth>();
+        Health health = target.GetComponent<Health>();
         if (health != null)
         {
             healthTarget = health;
