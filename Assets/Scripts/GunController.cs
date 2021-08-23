@@ -14,7 +14,7 @@ public class GunController : MonoBehaviour
     AudioSource audioSource;
     [SerializeField] AudioClip audioClip;
     PlayerController player;
-    public GameObject BulletPrefab;
+    //public GameObject BulletPrefab;
     
 
     // Start is called before the first frame update
@@ -28,6 +28,7 @@ public class GunController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        //audioSource.Play();
         timer += Time.deltaTime;
         if (timer > fireRate)
         {
@@ -51,7 +52,7 @@ public class GunController : MonoBehaviour
         RaycastHit hit;
         if (Physics.Raycast(ray, out hit, 100))
         {
-                var bulletProjectile = Instantiate(BulletPrefab, transform.position, Quaternion.identity);
+                //var bulletProjectile = Instantiate(BulletPrefab, transform.position, Quaternion.identity);
                 var health = hit.collider.gameObject.GetComponent<EnemyHealth>();
                 if (health != null)
                 {
@@ -60,10 +61,9 @@ public class GunController : MonoBehaviour
 
             if (hit.collider.CompareTag("Enemy"))
             {
-                if (EnemyHealth.instance1.currentHealth == 0)
-                {
+                
                     SceneManager.LoadScene(6);
-                }
+                
                
 
 
