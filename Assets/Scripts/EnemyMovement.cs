@@ -5,7 +5,7 @@ using UnityEngine.AI;
 
 public class EnemyMovement : MonoBehaviour
 {
-    Animator anim;
+   
     EnemyAggroDetection aggro;
     NavMeshAgent nav;
     Transform enemyTarget;
@@ -15,7 +15,7 @@ public class EnemyMovement : MonoBehaviour
     {
         instance = this;
         nav = GetComponent<NavMeshAgent>();
-        anim = GetComponentInChildren<Animator>();
+       
         aggro = GetComponent<EnemyAggroDetection>();
         aggro.OnAggro += Aggro_OnAggro;
     }
@@ -29,7 +29,7 @@ public class EnemyMovement : MonoBehaviour
         {
             nav.SetDestination(enemyTarget.position);
             float enemySpeed = nav.velocity.magnitude;
-            anim.SetFloat("Blend", enemySpeed);
+            
         }
 
     }

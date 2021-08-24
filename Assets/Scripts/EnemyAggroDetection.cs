@@ -5,7 +5,13 @@ using UnityEngine.AI;
 using System;
 public class EnemyAggroDetection : MonoBehaviour
 {
+    Animator anim;
     public event Action<Transform> OnAggro = delegate { };
+    public float enemySpeed;
+    private void Awake()
+    {
+        anim = GetComponentInChildren<Animator>();
+    }
     private void OnTriggerEnter(Collider other)
     {
         var player = other.GetComponent<PlayerController>();
@@ -13,6 +19,7 @@ public class EnemyAggroDetection : MonoBehaviour
         {
             Debug.Log("Aggro detector");
             OnAggro(player.transform);
+            anim.SetFloat("Blend", enemySpeed);
         }
     }
 }

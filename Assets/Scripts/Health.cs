@@ -18,6 +18,7 @@ public class Health : MonoBehaviour
     public void TakeDamage(int damageAmount)
     {
         currentHealth -= damageAmount;
+        print(currentHealth);
         playerHEalthText.text = "Health: " + currentHealth;
         if (currentHealth <= 0)
         {
@@ -27,7 +28,7 @@ public class Health : MonoBehaviour
     private void Die()
     {
         gameObject.SetActive(false);
-        print("EnemyDead");
+        
         SceneManager.LoadScene(5);
     }
 }

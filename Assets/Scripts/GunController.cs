@@ -3,17 +3,19 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class GunController : MonoBehaviour
 {
     float fireRate = 1f;
     int damage = 1;
-    float timer = 0;
+    public float timer = 20;
     [SerializeField] Transform firePoint;
     [SerializeField] ParticleSystem particle;
     AudioSource audioSource;
     [SerializeField] AudioClip audioClip;
     PlayerController player;
+    public Text timeText;
     //public GameObject BulletPrefab;
     
 
@@ -29,7 +31,8 @@ public class GunController : MonoBehaviour
     void Update()
     {
         //audioSource.Play();
-        timer += Time.deltaTime;
+        timer -= Time.deltaTime;
+        timeText.text = "Time: " + Mathf.RoundToInt(timer);
         if (timer > fireRate)
         {
             if (Input.GetMouseButton(0))
@@ -41,6 +44,11 @@ public class GunController : MonoBehaviour
                 FireGun();
             }
 
+        }
+        else if (timer <= 0)
+        {
+            print("Game End");
+            SceneManager.LoadScene(5);
         }
     }
 
@@ -68,17 +76,15 @@ public class GunController : MonoBehaviour
 
 
             }
-            else if(hit.collider.CompareTag("Enemy1"))
+            else if(hit.collider.CompareTag("Enemy1") )
             {
 
                 SceneManager.LoadScene(5);
             }
+            
                 
            
         }
     }
-    public void Target()
-    {
-        
-    }
+    
 }
